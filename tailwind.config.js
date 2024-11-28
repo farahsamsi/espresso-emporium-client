@@ -9,6 +9,10 @@ export default {
       },
       backgroundImage: {
         navbarBg: "url('/src/assets/images/more/15.jpg')",
+        bannerBg: "url('/src/assets/images/more/3.png')",
+      },
+      colors: {
+        btnBg: "#E3B577",
       },
     },
   },

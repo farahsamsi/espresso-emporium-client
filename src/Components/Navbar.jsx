@@ -8,7 +8,7 @@ const Navbar = () => {
                 <div className='w-10 md:w-20'>
                     <img className='w-full' src={navLogo} alt="" />
                 </div>
-                <a className="text-2xl md:text-4xl lg:text-6xl">Espresso Emporium</a>
+                <h1 className="text-2xl md:text-4xl lg:text-6xl">Espresso Emporium</h1>
             </div>
 
         </div>
