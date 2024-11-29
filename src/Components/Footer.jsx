@@ -54,6 +54,7 @@ const Footer = () => {
                             <input type="text" placeholder="Name" className="input w-full" />
                             <input type="text" placeholder="Email" className="input w-full" />
                             <textarea className="textarea w-full" placeholder="Message"></textarea>
+                            <button className='btn btn-outline font-rancho rounded-3xl text-[#331A15] text-xl border-[#331A15]'>Send Message</button>
                         </div>
                     </div>
 
