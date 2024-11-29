@@ -1,9 +1,87 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const AddNewCoffee = () => {
     return (
-        <div>
-            Add new coffee
+        <div className='w-11/12 container mx-auto '>
+            <div className='my-5 lg:my-12'>
+                <Link to={-1} className='flex items-center gap-3'>
+                    <FaArrowLeftLong />
+                    <h1 className='font-rancho text-xl'>Back to home</h1>
+                </Link>
+            </div>
+            <div className='py-5 md:py-10 bg-[#F4F3F0] mb-6 md:mb-9'>
+                <div className='w-10/12 mx-auto'>
+                    <div className='text-center'>
+                        <h1 className='font-rancho text-2xl lg:text-5xl text-[#374151]'>Add New Coffee</h1>
+                        <p className='md:max-w-[930px] mx-auto my-4 md:my-6'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
+                    </div>
+                    <form className='space-y-4'>
+                        {/* row 1 */}
+                        <div className='grid md:grid-cols-2 gap-4'>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text text-xl font-semibold text-black/80">Name</span>
+                                </label>
+                                <input type="email" placeholder="Enter coffee name" className="input w-full" required />
+                            </div>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text text-xl font-semibold text-black/80">Chef</span>
+                                </label>
+                                <input type="email" placeholder="Enter coffee chef" className="input w-full" required />
+                            </div>
+                        </div>
+                        {/* row 2 */}
+                        <div className='grid md:grid-cols-2 gap-4'>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text text-xl font-semibold text-black/80">Supplier</span>
+                                </label>
+                                <input type="email" placeholder="Enter coffee supplier" className="input w-full" required />
+                            </div>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text text-xl font-semibold text-black/80">Taste</span>
+                                </label>
+                                <input type="email" placeholder="Enter coffee taste" className="input w-full" required />
+                            </div>
+                        </div>
+                        {/* row 3 */}
+                        <div className='grid md:grid-cols-2 gap-4'>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text text-xl font-semibold text-black/80">Category</span>
+                                </label>
+                                <input type="email" placeholder="Enter coffee category" className="input w-full" required />
+                            </div>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text text-xl font-semibold text-black/80">Details</span>
+                                </label>
+                                <input type="email" placeholder="Enter coffee details" className="input w-full" required />
+                            </div>
+                        </div>
+                        {/* row 4 */}
+                        <div className=''>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text text-xl font-semibold text-black/80">Photo URL</span>
+                                </label>
+                                <input type="email" placeholder="Enter coffee Photo URL" className="input w-full" required />
+                            </div>
+                        </div>
+                        {/* row 5 */}
+                        <div className=''>
+                            <div className="">
+                                <button className='btn bg-btnBg font-rancho text-xl w-full'>Add Coffee</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
         </div>
     );
 };
