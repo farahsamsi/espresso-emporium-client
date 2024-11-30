@@ -3,8 +3,11 @@ import topLeft from '../assets/images/more/4.png'
 import bottomRight from '../assets/images/more/5.png'
 import { RiCupLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import CoffeeCard from './CoffeeCard';
 
-const PopularProducts = () => {
+const PopularProducts = ({ coffeeData }) => {
+    console.log(coffeeData);
+
     return (
         <div className='relative'>
             <div className='absolute top-0 left-0 -z-20'>
@@ -20,6 +23,14 @@ const PopularProducts = () => {
                     <Link to='/addCoffee'>
                         <button className='font-rancho btn bg-btnBg text-white font-light text-2xl border-black'>Add Coffee <RiCupLine className='text-black' /></button>
                     </Link>
+                </div>
+                <div className='grid lg:grid-cols-2 gap-5'>
+                    {
+                        coffeeData.map(coffee => <CoffeeCard
+                            key={coffee._id}
+                            coffee={coffee}
+                        ></CoffeeCard>)
+                    }
                 </div>
             </div>
         </div>

@@ -3,6 +3,8 @@ import Home from "../Pages/Home";
 import MainLayout from "../Layouts/MainLayout";
 import AddNewCoffee from "../Pages/AddNewCoffee";
 import CoffeeDetails from "../Pages/CoffeeDetails";
+import SignIn from "../Pages/SignIn";
+import SignUp from "../Pages/SignUp";
 
 const Router = createBrowserRouter([
     {
@@ -11,15 +13,24 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/coffees')
             },
             {
                 path: '/addCoffee',
-                element: <AddNewCoffee></AddNewCoffee>
+                element: <AddNewCoffee></AddNewCoffee>,
             },
             {
                 path: "/coffeeDetails",
                 element: <CoffeeDetails></CoffeeDetails>
+            },
+            {
+                path: '/signIn',
+                element: <SignIn></SignIn>
+            },
+            {
+                path: '/signUp',
+                element: <SignUp></SignUp>
             }
         ]
     },
