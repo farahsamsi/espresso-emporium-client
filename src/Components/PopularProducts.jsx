@@ -5,8 +5,7 @@ import { RiCupLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import CoffeeCard from './CoffeeCard';
 
-const PopularProducts = ({ coffeeData }) => {
-    console.log(coffeeData);
+const PopularProducts = ({ coffees, setCoffees }) => {
 
     return (
         <div className='relative'>
@@ -26,9 +25,11 @@ const PopularProducts = ({ coffeeData }) => {
                 </div>
                 <div className='grid lg:grid-cols-2 gap-5'>
                     {
-                        coffeeData.map(coffee => <CoffeeCard
+                        coffees.map(coffee => <CoffeeCard
                             key={coffee._id}
                             coffee={coffee}
+                            coffees={coffees}
+                            setCoffees={setCoffees}
                         ></CoffeeCard>)
                     }
                 </div>

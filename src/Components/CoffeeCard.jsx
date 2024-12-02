@@ -1,9 +1,42 @@
 import { FaEye } from "react-icons/fa";
 import { FaPen } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee }) => {
-    const { name, chef, supplier, taste, category, details, photo } = coffee;
+const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
+    const { _id, name, chef, supplier, taste, category, details, photo } = coffee;
+
+    const handleDelete = _id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/coffees/${_id}`, {
+                    method: "DELETE",
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Coffee has been deleted.",
+                                icon: "success"
+                            });
+                            const remaining = coffees.filter(cof => cof._id !== _id);
+                            setCoffees(remaining);
+                        }
+                    })
+            }
+        });
+    }
 
     return (
         <div className="card bg-base-100 shadow-xl flex-col md:flex-row">
@@ -20,8 +53,8 @@ const CoffeeCard = ({ coffee }) => {
             </div>
             <div className="card-body flex-row md:flex-col justify-between items-end">
                 <button className="btn bg-[#D2B48C] text-white text-xl max-w-fit"><FaEye /></button>
-                <button className="btn bg-[#3C393B] text-white text-xl max-w-fit"><FaPen /></button>
-                <button className="btn bg-[#EA4744] text-white text-xl max-w-fit"><MdDelete /></button>
+                <Link to={`/updateCoffee/${_id}`}><button className="btn bg-[#3C393B] text-white text-xl max-w-fit"><FaPen /></button></Link>
+                <button onClick={() => handleDelete(_id)} className="btn bg-[#EA4744] text-white text-xl max-w-fit"><MdDelete /></button>
             </div>
         </div>
     );
