@@ -37,6 +37,13 @@ const AddNewCoffee = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
+                    e.target.name.value = '';
+                    e.target.chef.value = '';
+                    e.target.supplier.value = '';
+                    e.target.taste.value = '';
+                    e.target.category.value = '';
+                    e.target.details.value = '';
+                    e.target.photo.value = '';
                 }
             })
     }

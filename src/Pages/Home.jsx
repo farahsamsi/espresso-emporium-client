@@ -19,7 +19,7 @@ const Home = () => {
             {/* banner */}
             <Banner></Banner>
 
-            <div className='my-10 lg:my-28 min-h-[500px] md:min-h-[800px] border border-green-500'>
+            <div className='my-10 lg:my-28 min-h-[500px] md:min-h-[800px]'>
                 <PopularProducts
                     coffees={coffees}
                     setCoffees={setCoffees}></PopularProducts>

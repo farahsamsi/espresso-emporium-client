@@ -39,20 +39,21 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     }
 
     return (
-        <div className="card bg-base-100 shadow-xl flex-col md:flex-row">
+        <div className="card bg-[#F5F4F1] flex-col md:flex-row">
             <figure className="px-10 py-10 md:w-5/12">
                 <img
                     src={photo}
                     alt={name}
                     className="rounded-xl w-full object-cover" />
             </figure>
-            <div className="flex flex-col justify-center items-start">
+            <div className="flex flex-col justify-center items-start px-6 md:px-0 text-left">
                 <p><span className="font-bold">Name : </span>{name}</p>
                 <p><span className="font-bold">Chef : </span>{chef}</p>
                 <p><span className="font-bold">Taste : </span>{taste}</p>
             </div>
-            <div className="card-body flex-row md:flex-col justify-between items-end">
-                <button className="btn bg-[#D2B48C] text-white text-xl max-w-fit"><FaEye /></button>
+            <div className="card-body flex-row md:flex-col justify-between md:justify-center items-end">
+                <Link to={`/coffeeDetails/${_id}`}><button className="btn bg-[#D2B48C] text-white text-xl max-w-fit"><FaEye /></button></Link>
+
                 <Link to={`/updateCoffee/${_id}`}><button className="btn bg-[#3C393B] text-white text-xl max-w-fit"><FaPen /></button></Link>
                 <button onClick={() => handleDelete(_id)} className="btn bg-[#EA4744] text-white text-xl max-w-fit"><MdDelete /></button>
             </div>

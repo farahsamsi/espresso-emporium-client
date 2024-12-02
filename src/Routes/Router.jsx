@@ -27,8 +27,9 @@ const Router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/coffees/${params.id}`)
             },
             {
-                path: "/coffeeDetails",
-                element: <CoffeeDetails></CoffeeDetails>
+                path: "/coffeeDetails/:id",
+                element: <CoffeeDetails></CoffeeDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/coffees/${params.id}`)
             },
             {
                 path: '/signIn',

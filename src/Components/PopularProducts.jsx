@@ -23,7 +23,7 @@ const PopularProducts = ({ coffees, setCoffees }) => {
                         <button className='font-rancho btn bg-btnBg text-white font-light text-2xl border-black'>Add Coffee <RiCupLine className='text-black' /></button>
                     </Link>
                 </div>
-                <div className='grid lg:grid-cols-2 gap-5'>
+                <div className='grid lg:grid-cols-2 gap-5 w-11/12 mx-auto'>
                     {
                         coffees.map(coffee => <CoffeeCard
                             key={coffee._id}
