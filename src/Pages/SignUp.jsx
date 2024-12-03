@@ -3,6 +3,7 @@ import { FaArrowLeftLong, FaEyeSlash, FaRegEye } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const SignUp = () => {
 
@@ -20,7 +21,7 @@ const SignUp = () => {
             .then(result => {
                 const createdAt = result?.user?.metadata?.creationTime;
                 const newUser = { name, email, photo, createdAt }
-                fetch('http://localhost:5000/users', {
+                fetch('https://coffee-store-server-nine-liart.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -49,6 +50,9 @@ const SignUp = () => {
 
     return (
         <div className='w-11/12 container mx-auto my-6'>
+            <Helmet>
+                <title>Sign Up | Espresso Emporium</title>
+            </Helmet>
             <div className='my-5 lg:my-12'>
                 <Link to={-1} className='flex items-center gap-3'>
                     <FaArrowLeftLong />

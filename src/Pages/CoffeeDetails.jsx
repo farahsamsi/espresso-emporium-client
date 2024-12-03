@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
 
@@ -9,6 +10,9 @@ const CoffeeDetails = () => {
 
     return (
         <div className='w-11/12 container mx-auto '>
+            <Helmet>
+                <title>{name} | Espresso Emporium</title>
+            </Helmet>
             <div className='my-5 lg:my-12'>
                 <Link to={-1} className='flex items-center gap-3'>
                     <FaArrowLeftLong />

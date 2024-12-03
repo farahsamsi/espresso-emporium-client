@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -22,7 +23,7 @@ const UpdateCoffee = () => {
         const updateCoffee = { name, chef, supplier, taste, category, details, photo };
 
         // update coffee data to the server
-        fetch(`http://localhost:5000/coffees/${_id}`, {
+        fetch(`https://coffee-store-server-nine-liart.vercel.app/coffees/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -46,6 +47,9 @@ const UpdateCoffee = () => {
 
     return (
         <div className='w-11/12 container mx-auto '>
+            <Helmet>
+                <title>Update {name} | Espresso Emporium</title>
+            </Helmet>
             <div className='my-5 lg:my-12'>
                 <Link to={-1} className='flex items-center gap-3'>
                     <FaArrowLeftLong />

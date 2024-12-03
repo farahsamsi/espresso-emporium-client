@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { FaPen } from 'react-icons/fa';
 import { FaArrowLeftLong } from 'react-icons/fa6';
+import { MdDelete } from 'react-icons/md';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -18,7 +21,7 @@ const Users = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${_id}`, {
+                fetch(`https://coffee-store-server-nine-liart.vercel.app/users/${_id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())
@@ -39,13 +42,16 @@ const Users = () => {
     }
     return (
         <div className='w-11/12 container mx-auto my-7'>
+            <Helmet>
+                <title>Users | Espresso Emporium</title>
+            </Helmet>
             <div className='my-5 lg:my-12'>
                 <Link to={-1} className='flex items-center gap-3'>
                     <FaArrowLeftLong />
                     <h1 className='font-rancho text-xl'>Back to home</h1>
                 </Link>
                 <div>
-                    <h1 className="text-3xl">Users : {users.length}</h1>
+                    <h1 className="text-3xl font-rancho text-center my-5">Users : {users.length}</h1>
                     <div className="overflow-x-auto">
                         <table className="table">
                             {/* head */}
@@ -60,7 +66,7 @@ const Users = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* row 1 */}
+                                {/* row  */}
                                 {
                                     users.map(user => <tr key={user._id}>
                                         <th></th>
@@ -68,9 +74,9 @@ const Users = () => {
                                         <td>{user.email}</td>
                                         <td>{user.createdAt || 'Not available'}</td>
                                         <td>{user.lastSignInTime || 'Not available'}</td>
-                                        <td>
-                                            <button className='btn'>E</button>
-                                            <button onClick={() => handleDelete(user._id)} className='btn'>X</button>
+                                        <td className=''>
+                                            <button className="btn bg-[#3C393B] text-white text-xl max-w-fit"><FaPen /></button>
+                                            <button onClick={() => handleDelete(user._id)} className="btn bg-[#EA4744] text-white text-xl max-w-fit"><MdDelete /></button>
                                         </td>
                                     </tr>)
                                 }
